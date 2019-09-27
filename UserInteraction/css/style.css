@@ -1,0 +1,43 @@
+.span-6{
+    
+}
+.dragTarg{
+    background:silver;
+    width:150px;
+    height:180px;
+    border:solid 2px #333;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+}
+.dragTarg div{
+    height:30px;
+    width:100%;
+    /*
+    height:50px;
+    width:50px;
+    border-radius:25px;
+    float:left;
+    */
+}
+.dragItems{
+    /*background:lightblue;*/
+}
+.dragItemsC{
+  /*background:orange;  */
+}
+.dragItems div, .dragItemsC div{
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    float:left;
+    margin:2px 5px;
+}
+.red{
+    background:red;
+}
+.green{
+    background:green;
+}
+.blue{
+    background:blue;
+}
