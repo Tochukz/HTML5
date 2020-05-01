@@ -44,15 +44,20 @@ function success(position) {
 /**
  * Handle failure on trying to get geolocation position.
  */
-function failure(positionError) {
-    //console.log(positionError);
-    if (positionError.code == 1 || positionError.message == "User denied Geolocation") {
-        console.log("User denied API permisssion");
-    } else if (positionError.code == 2) {
-        console.log("Position is unavailable"); //Network issues       
-    } else if (positionError.code == 3) {
-        console.log("Timeout");
-    }
+function failure(error) {
+    showError(error);
+}
+
+/**
+ * Display error details
+ */
+function showError(error) {
+    const details = `<p><b>Error Code</b> ${error.code}</p><p><b>Message</b> ${error.message}</p>`
+    $('#errorDiv').html(details).slideDown();
+    setTimeout(() => {
+        $('#errorDiv').slideUp();
+    }, 4000);
+    console.error(error);
 }
 
 /**
@@ -70,7 +75,7 @@ function showCity() {
 }
 
 /**
- * MAkes a googlemap API request for a user's human readable location.
+ * Makes a googlemap API request for a user's human readable location.
  */
 function reverseGeocode(lat, lng) {
     var key = "AIzaSyCOao_SuwVRuY9dtThQ-Ke1_ezxTKpUFro"; //Google Places API key
