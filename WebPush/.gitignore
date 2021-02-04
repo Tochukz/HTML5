@@ -1,0 +1,5 @@
+*.crt
+*.key
+manifest.json
+.env
+node_modules
