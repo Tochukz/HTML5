@@ -29,6 +29,20 @@
             <p><img src="data:<?= $mimeType ?>;base64,<?= $base64Str ?>" id="dataUrlPix" /></p>
             <p>This dataUrl image will be appended to the form as Blob when the send button is clicked</p>
         </div>
+        <div class="col-sm-12">
+            <?php
+                $file = "../assets/test.pdf";
+                $fileHandle =fopen($file, "r");
+                $binary = fread($fileHandle, filesize($file));
+                fclose($fileHandle);
+                $base64Str = base64_encode($binary);
+            
+                $mimeType = mime_content_type($file);
+            ?>
+            <div>
+               <iframe src="data:<?= $mimeType ?>;base64,<?= $base64Str ?>" style="width: 100%; height: 500px"></iframe>
+            </div>
+       </div>
     </div>
 </div>
 </section>
