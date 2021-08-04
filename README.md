@@ -17,3 +17,7 @@ __Articles__
 __Alternative Push Library__
 * [push.js](https://pushjs.org/)  
 * [minishlink/web-push](https://github.com/web-push-libs/web-push-php)
+
+
+# Media Device
+To create handle the image capture sent from the client, on ExpressJS, the file upload module `express-fileupload` is imperative. It sits as the middleware that processes the file so that is doesn't get rejected by the other request processing middlewares like json parser or post/body parser.  

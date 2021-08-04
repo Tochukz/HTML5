@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Upload</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+        <h4>Normal Upload</h4>
+    </div>          
+    <div class="col-sm-6">
+        <input type="file" class="form-control" id="fileInput" />
+    </div>
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-secondary" onclick="normalFileUpload()">Normal Upload</button>
+    </div>
+    <div class="col-sm-6">
+      <div style="height: 150" id="uploadedDiv"></div>
+    </div>
+  </div> 
+</div>    
+    
+<script>
+  async function normalFileUpload() {
+  const files = document.getElementById("fileInput").files;
+  if (!files || !files.length) {    
+    alert('No file was selected');
+    return false;
+  }
+  const formData = new FormData();
+  formData.append('picture', files[0]);
+  const response = await fetch('/normal-fileupload', {method: 'POST', body: formData});
+  const res = await response.json();
+
+  const divElem = document.getElementById("uploadedDiv");
+  const img = document.createElement('img');
+  img.src = `/uploaded/${res.filename}`;
+  img.setAttribute('width', 150);
+  //img.setAttribute('height', 150);
+  img.setAttribute('style', 'margin: 2px; padding: 2px; border: solid silver 1px');
+  divElem.appendChild(img);
+}
+
+</script>
+</body>
+</html>

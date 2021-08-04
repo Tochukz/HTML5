@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Device</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Media Device</h3>
+    </div>
+    <div class="col-sm-6">      
+      <button class="btn btn-primary" onclick="launchCamera()">Camera</button>    
+      Instruction: Clink on Camera -> Take Short -> Save  
+      <div class="card mb-3 mt-3">
+        <h3 class="card-header">Video</h3>
+        <video width="540" height="340" controls id="videoElem">
+            <!-- <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg"> -->
+            Your browser does not support the video tag.
+        </video>                    
+      </div>   
+      <button class="btn btn-primary" onclick="closeCamera()">Turn Off</button> 
+    </div>
+    <div class="col-sm-6">      
+      <button class="btn btn-info" onclick="takeShot()">Take Shot</button> 
+      <button class="btn btn-success" onclick="saveShot()">Save Shot</button>     
+      <div class="card mb-3 mt-3">
+        <h3 class="card-header">Photo</h3>
+        <canvas id="takePhotoCanvas" width="520" height="240"></canvas>
+      </div>
+      <div style="height: 150" id="uploadedDiv"></div>
+    </div>   
+  </div>
+</div>    
+    
+<script src="/js/main.js"></script>
+</body>
+</html>
